@@ -6,4 +6,5 @@
 num
 
 ; random number generator - picks a random number between the values 101 and 999
-(random 101 999)
+(define rand (random 101 999))
+rand
