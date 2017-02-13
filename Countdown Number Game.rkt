@@ -9,11 +9,19 @@ numList
 ; I set the max number as 1000 and not 999 because the set value cannot be chosen
 ; randomly and in case we want to use 999. I did not change the min number because
 ; the min number can be chosen randomly. 
-(define target (random 101 1000))
-target
+(define targetNumber (random 101 1000))
+targetNumber
 
-; defined an empty list to store the 6 random numbers from the list num
+; defined an empty list to store the 6 random numbers from the list numList
 (define numSelection (list))
+
+;defines a variable that will take in the list of numbers
+(define (randomNumList l) numList)
+
+
+
+; the list numList is passed into this empty list
+(randomNumList numList)
 
 
 
