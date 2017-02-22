@@ -15,13 +15,20 @@ targetNumber
 ; defined an empty list to store the 6 random numbers from the list numList
 (define numSelection (list))
 
-;defines a variable that will take in the list of numbers
-(define (randomNumList l) numList)
+
+; defines the function that takes in the variable l(basically the list of numbers)
+(define (randomNumList l)
+  ; define the function randomNumber that uses list-ref to get a certain position in
+  ; a list. In this case I use it to find a certain random number in the list l.
+  (define randomNumber(list-ref l(random (length l))))
+  ;set! l - removes the random number from the list l that has already been selected to ensure that it cannot be selected again
+  (set! l(remove randomNumber l)) numSelection)
 
 
 
-; the list numList is passed into this empty list
+; the list numList is passed into this empty list randomNumList
 (randomNumList numList)
 
 
 
+  
