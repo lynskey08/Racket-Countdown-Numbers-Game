@@ -20,9 +20,13 @@ targetNumber
 (define (randomNumList l)
   ; define the function randomNumber that uses list-ref to get a certain position in
   ; a list. In this case I use it to find a certain random number in the list l.
-  (define randomNumber(list-ref l(random (length l))))
-  ;set! l - removes the random number from the list l that has already been selected to ensure that it cannot be selected again
-  (set! l(remove randomNumber l)) numSelection)
+  (define randomNumber(list-ref l(random (length l)))
+  ;set the list l and removes the random number from the list l that has already been selected to ensure that it cannot be selected again
+  (set! l(remove randomNumber l))
+  (if (= (length numSelection) 6)
+      numSelection
+      (randomNumList l)))
+
 
 
 
