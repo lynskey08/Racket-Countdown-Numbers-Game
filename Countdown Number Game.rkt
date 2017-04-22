@@ -1,5 +1,5 @@
 #lang racket
-
+#|
 ; Defined a list called num that contains the numbers that can be used in
 ; the calcuation of the sum
 (define numList (list 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 25 50 75 100))
@@ -65,10 +65,9 @@
          (valid-rpn? (cdr e) (+ s 1))
          (if (< s 2) #f (#t)))))
 (display "\n")
-(display "\n")
+(display "\n")|#
 
-(define numbers(list 1 2 5 10 50 100))
-(define ops(list '+ '- '* '/))
+(define l(list 1 2 '+ 4 '-))
 
 
 
