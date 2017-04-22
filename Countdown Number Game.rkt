@@ -47,7 +47,7 @@
      numSelection2 ;print numSelection
       (randomNumList2 l)) 
 )
-; the list numList is passed into this empty list randomNumList
+; the list numList is passed into empty list randomNumList and randomNumList2
 (randomNumList numList)
 (randomNumList2 numList)
 
@@ -72,8 +72,7 @@
      opsSelection1 ;print numSelection
       (randomOpsList1 l))
 )
-
-
+; the list opsList is passed into this empty list randomOpsList4 and randomOpsList
 (randomOpsList4 opsList)
 (randomOpsList1 opsList)
 
@@ -83,24 +82,7 @@
 (display "\n")
 
 
-
-; define a list called start with the values -1 and 1. 1 represents a number and
-; -1 represents an operator
-(define start(list '+ '+ '+ '+ 1 1 1 1))
-; define a lost getPerms that gets all the permutations of the list start and
-; removes the duplicates.
-
-(define getPerms(remove-duplicates (permutations start)))
-; then we define a to-rpn(reverse polish notation) function that add two numbers
-; to the front and one operator to the back of the permutation as this is required
-; for it to be a valid rpn
-
-(define (to-rpn l)
-  (append (list 1 1) l (list -1)))
-; map passes each item of the list getPerms into the function to-rpn in order to
-; validate it
-;(map to-rpn getPerms)
-(define work(map to-rpn getPerms))
+(define perms(remove-duplicates (permutations (append numSelection4 opsSelection4))))
 
 ; defines the function valid-rpn that validates the format of a rpn equation
 (define (valid-rpn? e [s 0])
@@ -111,7 +93,9 @@
          (valid-rpn? (cdr e) (+ s 1))
          (if (> s 1)
              (valid-rpn? (cdr e) (- s 1))
-             (#f)))))
+             #f))))
+
+
 
 
 ;Calculate the Reverse Polish Notation
@@ -129,14 +113,15 @@
      [(x s) (error "calculate-RPN: Cannot calculate the expression:" 
                    (reverse (cons x s)))])))
 
-;(define l(calculate-RPN start))
+; then we define a to-rpn(reverse polish notation) function that add two numbers
+; to the front and one operator to the back of the permutation as this is required
+; for it to be a valid rpn
 
-;(define l(list 1 2 '+ 4 '-))
-;(define rem(remove-duplicates (permutations l)))
-
-
-;(define sum(calculate-RPN l))
-;sum
+(define (to-rpn l)
+  (valid-rpn? (append numSelection2 l opsSelection1)))
+; map passes each item of the list perms into the function to-rpn in order to
+; validate it
+(map to-rpn perms)
 
 
 
