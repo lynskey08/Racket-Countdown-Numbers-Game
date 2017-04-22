@@ -3,8 +3,8 @@
 ; Defined a list called num that contains the numbers that can be used in
 ; the calcuation of the sum
 (define numList (list 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 25 50 75 100))
-(define ops ('+ '+ '+ '+ '+ '- '- '- '- '* '* '* '* '/ '/ '/ '/ '/))
-(display "This is the range of that 6 randomly generated numbers will be chosen from: ")numList
+(define opsList(list '+ '+ '+ '+ '+ '- '- '- '- '* '* '* '* '/ '/ '/ '/ '/))
+;(display "This is the range of that 6 randomly generated numbers will be chosen from: ")numList
 (display "\n")
 
 ;Random number generator - picks a random number between the values 101 and 999
@@ -18,7 +18,8 @@
 ;Defined an empty list to store the 6 random numbers from the list numList
 (define numSelection4 (list))
 (define numSelection2 (list))
-
+(define opsSelection4 (list))
+(define opsSelection1 (list))
 
 ;Defines the function that takes in the variable l(basically the list of numbers)
 ;Define the function randomNumber that uses list-ref to get a certain position in
@@ -46,11 +47,35 @@
      numSelection2 ;print numSelection
       (randomNumList2 l)) 
 )
-
-
 ; the list numList is passed into this empty list randomNumList
 (randomNumList numList)
 (randomNumList2 numList)
+
+; function to retrieve 4 random operators from opsList
+(define (randomOpsList4 l)
+  
+  (define randomOps(list-ref l(random (length l))))  
+  (set! l(remove randomOps l)) 
+  (set! opsSelection4 (cons randomOps opsSelection4))  
+  (if (= (length opsSelection4) 4)
+     opsSelection4 ;print numSelection
+      (randomOpsList4 l))
+)
+
+; function to retrieve 1 random operators from opsList
+(define (randomOpsList1 l)
+  
+  (define randomOps(list-ref l(random (length l))))  
+  (set! l(remove randomOps l)) 
+  (set! opsSelection1 (cons randomOps opsSelection1))  
+  (if (= (length opsSelection1) 1)
+     opsSelection1 ;print numSelection
+      (randomOpsList1 l))
+)
+
+
+(randomOpsList4 opsList)
+(randomOpsList1 opsList)
 
 ; the algorithm
 (display "\n")
