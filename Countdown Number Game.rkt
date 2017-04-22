@@ -57,13 +57,20 @@
 ; validate it
 (map to-rpn getPerms)
 
-; defines the function valid-rpn that validates the format of a rpn equation 
+; defines the function valid-rpn that validates the format of a rpn equation
 (define (valid-rpn? e [s 0])
   (if (null? e)
       (if (= s 1) #t #f)
       (if(= (car e) 1)
          (valid-rpn? (cdr e) (+ s 1))
          (if (< s 2) #f (#t)))))
+(display "\n")
+(display "\n")
+
+(define numbers(list 1 2 5 10 50 100))
+(define ops(list '+ '- '* '/))
+
+
 
 
 
