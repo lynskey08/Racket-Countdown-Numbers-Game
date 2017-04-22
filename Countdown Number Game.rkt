@@ -108,8 +108,11 @@
      [('+ (list x y s ___)) (cons (+ x y) s)]
      [('- (list x y s ___)) (cons (- y x) s)]
      [('* (list x y s ___)) (cons (* x y) s)]
-     [('/ (list x y s ___)) (cons (/ y x) s)]
-     [('^ (list x y s ___)) (cons (expt y x) s)]
+     [('/ (list x y s ___)) (if (= y 0)
+                                (cons 0 s)
+                                (if (= x 0)
+                                    (cons 0 s)
+                                    (cons (/ y x) s)))]
      [(x s) (error "calculate-RPN: Cannot calculate the expression:" 
                    (reverse (cons x s)))])))
 
@@ -118,7 +121,8 @@
 ; for it to be a valid rpn
 
 (define (to-rpn l)
-  (valid-rpn? (append numSelection2 l opsSelection1)))
+  (cond [(valid-rpn? (append numSelection2 l opsSelection1))
+   (calculate-RPN (append numSelection2 l opsSelection1))]))
 ; map passes each item of the list perms into the function to-rpn in order to
 ; validate it
 (map to-rpn perms)
