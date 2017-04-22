@@ -68,7 +68,8 @@
 (display "\n")|#
 
 (define l(list 1 2 '+ 4 '-))
-
+(define rem(remove-duplicates(permutations l)))
+rem
 
 
 
