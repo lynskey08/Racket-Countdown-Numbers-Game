@@ -38,7 +38,7 @@
 ; the algorithm
 (display "\n")
 (display "\n")
-(display "\n")
+(display "\n")|#
 
 
 
@@ -56,6 +56,7 @@
 ; map passes each item of the list getPerms into the function to-rpn in order to
 ; validate it
 ;(map to-rpn getPerms)
+(map to-rpn getPerms)
 
 ; defines the function valid-rpn that validates the format of a rpn equation
 (define (valid-rpn? e [s 0])
@@ -64,12 +65,31 @@
       (if(= (car e) 1)
          (valid-rpn? (cdr e) (+ s 1))
          (if (< s 2) #f (#t)))))
-(display "\n")
-(display "\n")|#
 
-(define l(list 1 2 '+ 4 '-))
-(define rem(remove-duplicates(permutations l)))
-rem
+
+;Stack-based evaluator for an expression in reverse Polish notation .
+;adapted from: https://rosettacode.org/wiki/Parsing/RPN_calculator_algorithm#Racket
+(define (calculate-RPN expr)
+  (for/fold ([stack '()]) ([token expr])
+    (printf "~a\t -> ~a~N" token stack)
+    (match* (token stack)
+     [((? number? n) s) (cons n s)]
+     [('+ (list x y s ___)) (cons (+ x y) s)]
+     [('- (list x y s ___)) (cons (- y x) s)]
+     [('* (list x y s ___)) (cons (* x y) s)]
+     [('/ (list x y s ___)) (cons (/ y x) s)]
+     [('^ (list x y s ___)) (cons (expt y x) s)]
+     [(x s) (error "calculate-RPN: Cannot calculate the expression:" 
+                   (reverse (cons x s)))])))
+
+;(define l(list 1 2 '+ 4 '-))
+;(define rem(remove-duplicates (permutations l)))
+
+
+;(define sum(calculate-RPN l))
+;sum
+
+
 
 
 
