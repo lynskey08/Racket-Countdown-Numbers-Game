@@ -1,8 +1,9 @@
 #lang racket
-#|
+
 ; Defined a list called num that contains the numbers that can be used in
 ; the calcuation of the sum
 (define numList (list 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 25 50 75 100))
+(define ops ('+ '+ '+ '+ '+ '- '- '- '- '* '* '* '* '/ '/ '/ '/ '/))
 (display "This is the range of that 6 randomly generated numbers will be chosen from: ")numList
 (display "\n")
 
@@ -15,30 +16,46 @@
 (display "This is the randomly selected range of numbers you can use: ")
 
 ;Defined an empty list to store the 6 random numbers from the list numList
-(define numSelection (list))
+(define numSelection4 (list))
+(define numSelection2 (list))
+
 
 ;Defines the function that takes in the variable l(basically the list of numbers)
+;Define the function randomNumber that uses list-ref to get a certain position in
+; a list. In this case I use it to find a certain random number in the list l.
+;Removes the random number from the list l that has already been selected to
+;ensure that it cannot be selected again
+;Add the random number to the list numSelection
+;if the length of l is 4
+;else call the function again with the updated l list
 (define (randomNumList l)
-  ;Define the function randomNumber that uses list-ref to get a certain position in
-  ; a list. In this case I use it to find a certain random number in the list l.
-  (define randomNumber(list-ref l(random (length l))))
-  ;Removes the random number from the list l that has already been selected to
-  ;ensure that it cannot be selected again
-  (set! l(remove randomNumber l))
-  ;Add the random number to the list numSelection
-  (set! numSelection (cons randomNumber numSelection))
-  ;if the length of l is 6
-  (if (= (length numSelection) 6)
-     numSelection ;print numSelection
-      (randomNumList l))) ;else call the function again with the updated l list
+  
+  (define randomNumber(list-ref l(random (length l))))  
+  (set! l(remove randomNumber l)) 
+  (set! numSelection4 (cons randomNumber numSelection4))  
+  (if (= (length numSelection4) 4)
+     numSelection4 ;print numSelection
+      (randomNumList l))
+)
+
+(define (randomNumList2 l)
+  (define randomNumber2(list-ref l(random (length l))))  
+  (set! l(remove randomNumber2 l)) 
+  (set! numSelection2 (cons randomNumber2 numSelection2))  
+  (if (= (length numSelection2) 2)
+     numSelection2 ;print numSelection
+      (randomNumList2 l)) 
+)
+
 
 ; the list numList is passed into this empty list randomNumList
 (randomNumList numList)
+(randomNumList2 numList)
 
 ; the algorithm
 (display "\n")
 (display "\n")
-(display "\n")|#
+(display "\n")
 
 
 
@@ -87,7 +104,7 @@
      [(x s) (error "calculate-RPN: Cannot calculate the expression:" 
                    (reverse (cons x s)))])))
 
-
+;(define l(calculate-RPN start))
 
 ;(define l(list 1 2 '+ 4 '-))
 ;(define rem(remove-duplicates (permutations l)))
