@@ -44,7 +44,7 @@
 
 ; define a list called start with the values -1 and 1. 1 represents a number and
 ; -1 represents an operator
-(define start(list -1 -1 -1 -1 1 1 1 1))
+(define start(list '+ '+ '+ '+ 1 1 1 1))
 ; define a lost getPerms that gets all the permutations of the list start and
 ; removes the duplicates.
 (define getPerms(remove-duplicates (permutations start)))
@@ -56,13 +56,13 @@
 ; map passes each item of the list getPerms into the function to-rpn in order to
 ; validate it
 ;(map to-rpn getPerms)
-(map to-rpn getPerms)
+(define mapp(map to-rpn getPerms))
 
 ; defines the function valid-rpn that validates the format of a rpn equation
 (define (valid-rpn? e [s 0])
   (if (null? e)
       (if (= s 1) #t #f)
-      (if(= (car e) 1)
+      (if(number? (car e))
          (valid-rpn? (cdr e) (+ s 1))
          (if (< s 2) #f (#t)))))
 
@@ -81,6 +81,8 @@
      [('^ (list x y s ___)) (cons (expt y x) s)]
      [(x s) (error "calculate-RPN: Cannot calculate the expression:" 
                    (reverse (cons x s)))])))
+
+
 
 ;(define l(list 1 2 '+ 4 '-))
 ;(define rem(remove-duplicates (permutations l)))
