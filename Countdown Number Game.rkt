@@ -47,27 +47,30 @@
 (define start(list '+ '+ '+ '+ 1 1 1 1))
 ; define a lost getPerms that gets all the permutations of the list start and
 ; removes the duplicates.
+
 (define getPerms(remove-duplicates (permutations start)))
 ; then we define a to-rpn(reverse polish notation) function that add two numbers
 ; to the front and one operator to the back of the permutation as this is required
 ; for it to be a valid rpn
+
 (define (to-rpn l)
   (append (list 1 1) l (list -1)))
 ; map passes each item of the list getPerms into the function to-rpn in order to
 ; validate it
 ;(map to-rpn getPerms)
-(define mapp(map to-rpn getPerms))
+(define work(map to-rpn getPerms))
 
 ; defines the function valid-rpn that validates the format of a rpn equation
 (define (valid-rpn? e [s 0])
   (if (null? e)
       (if (= s 1) #t #f)
+       ;if the first thing of the list a number, return true
       (if(number? (car e))
          (valid-rpn? (cdr e) (+ s 1))
          (if (< s 2) #f (#t)))))
 
 
-;Stack-based evaluator for an expression in reverse Polish notation .
+;Calculate the Reverse Polish Notation
 ;adapted from: https://rosettacode.org/wiki/Parsing/RPN_calculator_algorithm#Racket
 (define (calculate-RPN expr)
   (for/fold ([stack '()]) ([token expr])
