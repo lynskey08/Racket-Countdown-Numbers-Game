@@ -55,7 +55,7 @@
   (append (list 1 1) l (list -1)))
 ; map passes each item of the list getPerms into the function to-rpn in order to
 ; validate it
-(map to-rpn getPerms)
+;(map to-rpn getPerms)
 
 ; defines the function valid-rpn that validates the format of a rpn equation
 (define (valid-rpn? e [s 0])
