@@ -40,7 +40,13 @@
 (display "\n")
 (display "\n")
 
-
+; define a list called start with the values -1 and 1. 1 represents a number and
+; -1 represents an operator
+; define a lost getPerms that gets all the permutations of the list start and
+; removes the duplicates.
+; then we define a to-rpn(reverse polish notation) function that add two numbers
+; to the front and one operator to the back of the permutation as this is required
+; for it to be a valid rpn
 (define start(list -1 -1 -1 -1 1 1 1 1))
 (define getPerms(remove-duplicates (permutations start)))
 (define (to-rpn l)
