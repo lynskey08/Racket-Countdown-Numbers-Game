@@ -67,7 +67,9 @@
        ;if the first thing of the list a number, return true
       (if(number? (car e))
          (valid-rpn? (cdr e) (+ s 1))
-         (if (< s 2) #f (#t)))))
+         (if (> s 1)
+             (valid-rpn? (cdr e) (- s 1))
+             (#f)))))
 
 
 ;Calculate the Reverse Polish Notation
