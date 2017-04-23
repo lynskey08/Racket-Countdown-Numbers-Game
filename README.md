@@ -135,4 +135,22 @@ to evaluate an equation using only a single stack. I used the stack to help vali
 element of the list. Pushing and pulling involves placing or removing an element to/from the top of the stack. 
 
 ## **_Conclusion_**
+In the end I didn't have enough time the optimise the algorithm as much as I had planned. The algorithm checks if the answer to the equation is the target answer. It tries to filters out equations that are by 0 and it also tries to filter out equations that are being divides by a greater number. This algorithm is still home to many errors as it prints out valid answers which are incorrect.
+For example: If the target number was 165, and one of the equations evaluates to -165, the negative answer would be outputted as correct. If I were to do the project again I would have started it a lot earlier and I would have looked into fixing this error and maybe optimising the algorithm some more. Towards the end i had little time and I started to rush everything.
+
+# **_Resources_**
+
+[https://en.wikipedia.org/wiki/Reverse_Polish_notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation)
+[https://rosettacode.org/wiki/Parsing/RPN_calculator_algorithm#Racket](https://rosettacode.org/wiki/Parsing/RPN_calculator_algorithm#Racket)
+[http://stackoverflow.com/questions/40566422/random-function-in-racket](http://stackoverflow.com/questions/40566422/random-function-in-racket)
+[http://stackoverflow.com/questions/1041603/how-do-i-write-push-and-pop-in-scheme](http://stackoverflow.com/questions/1041603/how-do-i-write-push-and-pop-in-scheme)
+[https://learnonline.gmit.ie/mod/url/view.php?id=189393](https://learnonline.gmit.ie/mod/url/view.php?id=189393)
+[https://docs.racket-lang.org/guide/set_.html](https://docs.racket-lang.org/guide/set_.html)
+[https://docs.racket-lang.org/guide/read-write.html](https://docs.racket-lang.org/guide/read-write.html)
+[http://stackoverflow.com/questions/19913606/delete-element-from-list-in-scheme](http://stackoverflow.com/questions/19913606/delete-element-from-list-in-scheme)
+[http://stackoverflow.com/questions/4583224/how-do-i-write-a-procedure-that-randomly-selects-a-pair-from-a-list](http://stackoverflow.com/questions/4583224/how-do-i-write-a-procedure-that-randomly-selects-a-pair-from-a-list)
+[http://stackoverflow.com/questions/15058246/reverse-list-scheme](http://stackoverflow.com/questions/15058246/reverse-list-scheme)
+[https://docs.racket-lang.org/](https://docs.racket-lang.org/)
+[https://github.com/PaprikaZ/programming-exercises/blob/master/racket/leetcode/evaluate-reverse-polish-notation.rkt](https://github.com/PaprikaZ/programming-exercises/blob/master/racket/leetcode/evaluate-reverse-polish-notation.rkt)
+[http://www.datagenetics.com/blog/august32014/index.html](http://www.datagenetics.com/blog/august32014/index.html)
 
