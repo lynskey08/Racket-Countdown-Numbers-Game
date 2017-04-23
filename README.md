@@ -135,3 +135,4 @@ to evaluate an equation using only a single stack. I used the stack to help vali
 element of the list. Pushing and pulling involves placing or removing an element to/from the top of the stack. 
 
 ## **_Conclusion_**
+
