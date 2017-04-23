@@ -140,17 +140,17 @@ For example: If the target number was 165, and one of the equations evaluates to
 
 # **_Resources_**
 
-[https://en.wikipedia.org/wiki/Reverse_Polish_notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation)
-[https://rosettacode.org/wiki/Parsing/RPN_calculator_algorithm#Racket](https://rosettacode.org/wiki/Parsing/RPN_calculator_algorithm#Racket)
-[http://stackoverflow.com/questions/40566422/random-function-in-racket](http://stackoverflow.com/questions/40566422/random-function-in-racket)
-[http://stackoverflow.com/questions/1041603/how-do-i-write-push-and-pop-in-scheme](http://stackoverflow.com/questions/1041603/how-do-i-write-push-and-pop-in-scheme)
-[https://learnonline.gmit.ie/mod/url/view.php?id=189393](https://learnonline.gmit.ie/mod/url/view.php?id=189393)
-[https://docs.racket-lang.org/guide/set_.html](https://docs.racket-lang.org/guide/set_.html)
-[https://docs.racket-lang.org/guide/read-write.html](https://docs.racket-lang.org/guide/read-write.html)
-[http://stackoverflow.com/questions/19913606/delete-element-from-list-in-scheme](http://stackoverflow.com/questions/19913606/delete-element-from-list-in-scheme)
-[http://stackoverflow.com/questions/4583224/how-do-i-write-a-procedure-that-randomly-selects-a-pair-from-a-list](http://stackoverflow.com/questions/4583224/how-do-i-write-a-procedure-that-randomly-selects-a-pair-from-a-list)
-[http://stackoverflow.com/questions/15058246/reverse-list-scheme](http://stackoverflow.com/questions/15058246/reverse-list-scheme)
-[https://docs.racket-lang.org/](https://docs.racket-lang.org/)
-[https://github.com/PaprikaZ/programming-exercises/blob/master/racket/leetcode/evaluate-reverse-polish-notation.rkt](https://github.com/PaprikaZ/programming-exercises/blob/master/racket/leetcode/evaluate-reverse-polish-notation.rkt)
-[http://www.datagenetics.com/blog/august32014/index.html](http://www.datagenetics.com/blog/august32014/index.html)
+[https://en.wikipedia.org/wiki/Reverse_Polish_notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation)<br>
+[https://rosettacode.org/wiki/Parsing/RPN_calculator_algorithm#Racket](https://rosettacode.org/wiki/Parsing/RPN_calculator_algorithm#Racket)<br>
+[http://stackoverflow.com/questions/40566422/random-function-in-racket](http://stackoverflow.com/questions/40566422/random-function-in-racket)<br>
+[http://stackoverflow.com/questions/1041603/how-do-i-write-push-and-pop-in-scheme](http://stackoverflow.com/questions/1041603/how-do-i-write-push-and-pop-in-scheme)<br>
+[https://learnonline.gmit.ie/mod/url/view.php?id=189393](https://learnonline.gmit.ie/mod/url/view.php?id=189393)<br>
+[https://docs.racket-lang.org/guide/set_.html](https://docs.racket-lang.org/guide/set_.html)<br>
+[https://docs.racket-lang.org/guide/read-write.html](https://docs.racket-lang.org/guide/read-write.html)<br>
+[http://stackoverflow.com/questions/19913606/delete-element-from-list-in-scheme](http://stackoverflow.com/questions/19913606/delete-element-from-list-in-scheme)<br>
+[http://stackoverflow.com/questions/4583224/how-do-i-write-a-procedure-that-randomly-selects-a-pair-from-a-list](http://stackoverflow.com/questions/4583224/how-do-i-write-a-procedure-that-randomly-selects-a-pair-from-a-list)<br>
+[http://stackoverflow.com/questions/15058246/reverse-list-scheme](http://stackoverflow.com/questions/15058246/reverse-list-scheme)<br>
+[https://docs.racket-lang.org/](https://docs.racket-lang.org/)<br>
+[https://github.com/PaprikaZ/programming-exercises/blob/master/racket/leetcode/evaluate-reverse-polish-notation.rkt](https://github.com/PaprikaZ/programming-exercises/blob/master/racket/leetcode/evaluate-reverse-polish-notation.rkt)<br>
+[http://www.datagenetics.com/blog/august32014/index.html](http://www.datagenetics.com/blog/august32014/index.html)<br>
 
