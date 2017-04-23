@@ -42,5 +42,13 @@ file "Countdown Number Game.rkt".
 ```Racket
 (define numList (list 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 25 50 75 100))
 ```
+Here I defined a list of numbers called numList that contains the range of numbers that the six random numbers are chosen from.
+
+```Racket
+(define opsList(list '+ '+ '+ '+ '+ '- '- '- '- '- '* '* '* '* '* '/ '/ '/ '/ '/))
+```
+I defined a list operators called opsList that contains the operators that can be used in the calcuation of the sum. 
+The reason I have 5 of each operator is because some calculation may have to use
+
 
 
