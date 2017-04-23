@@ -152,14 +152,18 @@
    (calculate-RPN (append numSelection2 l opsSelection1))]))
 ; map passes each item of the list perms into the function to-rpn in order to
 ; validate it
-(map to-rpn perms)
+
 
 
 (display (~v (remove-duplicates answerList)))
 
+(define (output l)
+  (~a l " = " targetNumber))
 
-
-
+(define (menu)
+  
+(map to-rpn perms)
+  (map output answerList))
 
 
 
