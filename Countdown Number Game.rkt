@@ -13,7 +13,7 @@
 ;the min number can be chosen randomly. 
 (define targetNumber (random 101 1000))
 (display "This is the target number: ")targetNumber
-(display "This is the randomly selected range of numbers you can use: ")
+(display "This is the randomly selected range of numbers you can use: \n")
 
 ;Defined empty lists to store the random numbers and operators from the lists numList and opsList.
 ;I created 4 list, numSelection4 to store 4 random numbers, numSelection2 to store 2 random
@@ -79,11 +79,13 @@
 (randomOpsList4 opsList)
 (randomOpsList1 opsList)
 
-(display "\n")
-(display "\n")
+(define answerList null)
+
 (display "\n")
 
-;
+;Here i defined the function perms that appends the functions
+;numSelection4 and the opsSelection4 and generates all permutations and removed any
+;duplicates between them.
 (define perms(remove-duplicates (permutations (append numSelection4 opsSelection4))))
 
 ;Function valid-rpn to validate the format of a rpn equation
@@ -107,22 +109,39 @@
 ;Calculate the Reverse Polish Notation
 ;adapted from: https://rosettacode.org/wiki/Parsing/RPN_calculator_algorithm#Racket
 (define (calculate-RPN expr)
+  (define answer '(Calculation: ))
   (for/fold ([stack '()]) ([token expr])
-    (printf "~a\t -> ~a~N" token stack)
+    ;(printf "~a\t -> ~a~N" token stack)
+         (set! answer(cons token answer))
+    (cond[
     (match* (token stack)
      [((? number? n) s) (cons n s)]
-     [('+ (list x y s ___)) (cons (+ x y) s)]
-     [('- (list x y s ___)) (if (< x y)
-                                #f
-                             (cons (- y x) s))]
-     [('* (list x y s ___)) (cons (* x y) s)]
+     [('+ (list x y s ___)) (if (=(+ x y) targetNumber)
+                                (if(= (length stack) 2)
+                                   (begin
+                                (set! answerList(cons (~a (reverse answer)) answerList)) (cons (+ x y) s)) (cons (+ x y) s)) (cons (+ x y) s))]
+     [('- (list x y s ___)) (if(< x y)
+                               (cons 0 s)
+                               (if (=(- x y) targetNumber)
+                                (if(= (length stack) 2)
+                                (begin
+                                  ;if it's the target number, cons it to the answer list 
+                                (set! answerList(cons (~a (reverse answer)) answerList)) (cons (- x y) s)) (cons (- x y) s)) (cons (- x y) s)))]
+     [('* (list x y s ___)) (if (=(* x y) targetNumber)
+                                (if(= (length stack) 2)
+                                   (begin
+                                (set! answerList(cons (~a (reverse answer)) answerList)) (cons (* x y) s)) (cons (* x y) s)) (cons (* x y) s))]
      [('/ (list x y s ___)) (if (= y 0)
                                 (cons 0 s)
                                 (if (= x 0)
                                     (cons 0 s)
-                                    (cons (/ y x) s)))]
+                                    (if (=(/ x y) targetNumber)
+                                        (if(= (length answer) 2)
+                                        (begin
+                                          (set! answerList(cons (~a (reverse answer)) answerList)) (cons (/ x y) s)) (cons (/ x y) s))
+                                    (cons (/ x y) s))))]
      [(x s) (error "calculate-RPN: Cannot calculate the expression:" 
-                   (reverse (cons x s)))])))
+                   (reverse (cons x s)))])])))
 
 ; then we define a to-rpn(reverse polish notation) function that add two numbers
 ; to the front and one operator to the back of the permutation as this is required
@@ -134,6 +153,9 @@
 ; map passes each item of the list perms into the function to-rpn in order to
 ; validate it
 (map to-rpn perms)
+
+
+(display (~v (remove-duplicates answerList)))
 
 
 
