@@ -106,7 +106,9 @@
     (match* (token stack)
      [((? number? n) s) (cons n s)]
      [('+ (list x y s ___)) (cons (+ x y) s)]
-     [('- (list x y s ___)) (cons (- y x) s)]
+     [('- (list x y s ___)) (if (< x y)
+                                #f
+                             (cons (- y x) s))]
      [('* (list x y s ___)) (cons (* x y) s)]
      [('/ (list x y s ___)) (if (= y 0)
                                 (cons 0 s)
