@@ -38,3 +38,9 @@ operations as follows. First add 2 and 2, to give 4. Then multiply this by
 file "Countdown Number Game.rkt".
 - When the file is open in DrRacket, click the "Run" button in the top right corner of the application.
 
+## **_Solution_**
+```Racket
+(define numList (list 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 25 50 75 100))
+```
+
+
