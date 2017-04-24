@@ -40,7 +40,8 @@ file "Countdown Number Game.rkt".
 **Output:**
 The application will generate a random target number between 101 and 999. It will also randomly generate 6 numbers
 from the list of numbers [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 25, 50, 75, 100] to be used 
-in the calculation.
+in the calculation.<br>
+The output may be be blank after running the application. Keep running the application until an answer is outputted. The reason for the application not outputting is because no solution for the answer with the specif 6 numbers and 5 operators were found.
 
 ## **_Solution_**
 ```Racket
